@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Trello Clone</title>
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+    >
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <div class="app">
+
+            <!-- Dashboard Title -->
+    <h1 class="dashboard-title">Trello Clone</h1>
+
+        <!-- Top Input Bar -->
+        <div class="task-input-container">
+
+            <div class="task-input-fields">
+
+                <!-- Enter task title -->
+                <input
+                    type="text"
+                    id="taskTitle"
+                    placeholder="Enter Task Title"
+                >
+
+                <!-- Select which column the task should go into -->
+                <select id="taskColumn">
+                    <option value="1">Later</option>
+                    <option value="2">To Do</option>
+                    <option value="3">In Progress</option>
+                    <option value="4">On Hold</option>
+                    <option value="5">Finished</option>
+                </select>
+
+                <!-- Select task priority -->
+                <select id="taskPriority">
+                    <option value="low">Low Priority</option>
+                    <option value="medium" selected>Medium Priority</option>
+                    <option value="high">High Priority</option>
+                </select>
+
+                <!-- Add new task -->
+                <button id="addTaskBtn">Add</button>
+
+            </div>
+
+        </div>
+
+
+        <!-- Kanban Board -->
+        <main class="kanban">
+
+            <!-- Column 1: Later -->
+            <div class="kanban-column" data-id="1">
+
+                <div class="kanban-title">
+                    <h2>Later</h2>
+
+                    <button class="add-card">
+                        <i class="fa-solid fa-plus"></i>
+                    </button>
+                </div>
+
+                <!-- Tasks are added here -->
+                <div class="kanban-cards">
+                    <p class="empty-message">No tasks yet</p>
+                </div>
+
+            </div>
+
+
+            <!-- Column 2: To Do -->
+            <div class="kanban-column" data-id="2">
+
+                <div class="kanban-title">
+                    <h2>To Do</h2>
+
+                    <button class="add-card">
+                        <i class="fa-solid fa-plus"></i>
+                    </button>
+                </div>
+
+                <!-- Tasks are added here -->
+                <div class="kanban-cards">
+                    <p class="empty-message">No tasks yet</p>
+                </div>
+
+            </div>
+
+
+            <!-- Column 3: In Progress -->
+            <div class="kanban-column" data-id="3">
+
+                <div class="kanban-title">
+                    <h2>In Progress</h2>
+
+                    <button class="add-card">
+                        <i class="fa-solid fa-plus"></i>
+                    </button>
+                </div>
+
+                <!-- Tasks are added here -->
+                <div class="kanban-cards">
+                    <p class="empty-message">No tasks yet</p>
+                </div>
+
+            </div>
+
+
+            <!-- Column 4: On Hold -->
+            <div class="kanban-column" data-id="4">
+
+                <div class="kanban-title">
+                    <h2>On Hold</h2>
+
+                    <button class="add-card">
+                        <i class="fa-solid fa-plus"></i>
+                    </button>
+                </div>
+
+                <!-- Tasks are added here -->
+                <div class="kanban-cards">
+                    <p class="empty-message">No tasks yet</p>
+                </div>
+
+            </div>
+
+
+            <!-- Column 5: Finished -->
+            <div class="kanban-column" data-id="5">
+
+                <div class="kanban-title">
+                    <h2>Finished</h2>
+
+                    <button class="add-card">
+                        <i class="fa-solid fa-plus"></i>
+                    </button>
+                </div>
+
+                <!-- Tasks are added here -->
+                <div class="kanban-cards">
+                    <p class="empty-message">No tasks yet</p>
+                </div>
+
+            </div>
+
+        </main>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

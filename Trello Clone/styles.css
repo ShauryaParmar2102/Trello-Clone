@@ -1,0 +1,284 @@
+/* Fixed: Restored full, valid Google Fonts URL */
+@import url('https://googleapis.com');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    height: 100vh; /* Fixed: Hard-locks body viewport height */
+    background: gray; 
+    padding: 20px;
+    overflow: hidden; /* Prevents double scrollbars on the main window */
+}
+
+.empty-message {
+    text-align: center;
+    color: #6b7280;
+    font-size: 13px;
+    padding: 20px;
+}
+
+.empty-message {
+    text-align: center;
+    color: #6b7280;
+    font-size: 13px;
+    padding: 20px;
+}
+
+.app{
+    display: flex;
+    flex-direction: column;
+    max-width: 1400px;
+    margin: 0 auto;
+    height: 100%; /* Fixed: Explicitly inherits height from the body */
+
+        /* Border around the entire dashboard */
+    border: 3px solid #172b4d;
+    border-radius: 12px;
+    padding: 16px;
+}
+
+/* Top Input Control Bar Styling */
+.task-input-container {
+    background: black;
+    padding: 16px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    flex-shrink: 0; /* Prevents the header bar from squishing */
+}
+
+/* Dashboard Title */
+.dashboard-title {
+    text-align: center;
+    color: white;
+    font-size: 28px;
+    margin-bottom: 16px;
+}
+
+.task-input-fields {
+    display: flex;
+    gap: 12px;
+}
+
+.task-input-fields input, 
+.task-input-fields select {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+    outline: none;
+}
+
+.task-input-fields input {
+    flex: 1;
+}
+
+/* Kanban Board Container */
+.kanban {
+    display: flex;
+    flex-direction: row;  
+    flex-wrap: nowrap;    
+    gap: 16px;
+    overflow-x: auto;     
+    overflow-y: hidden;   
+    padding-bottom: 16px;
+    width: 100%;          
+    align-items: flex-start; 
+    align-items: stretch; /* Forces all columns to match the same height */
+    flex: 1; 
+
+}
+
+
+/* Kanban Column Layout */
+.kanban-column {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    background-color: lightblue; 
+    border-radius: 12px;
+    padding: 12px;
+    flex: 1;
+    min-width: 0;   
+    width: 280px;         
+    max-height: 100%; /* Fixed: Keeps columns scaled safely inside the window boundary */
+}
+
+.kanban-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.kanban-title h2 {
+    font-size: 16px;
+    color: #172b4d;
+    font-weight: 600;
+}
+
+.add-card {
+    background: none;
+    border: none;
+    font-size: 16px;
+    color: #5e6c84;
+    cursor: pointer;
+}
+
+.kanban-cards.cards-hover {
+    background-color: lightgray;
+}
+
+/* Inner Card Container Scroll Tracking */
+.kanban-cards{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow-y: auto; /* Adds a clean inner scrollbar if you get too many cards */
+    flex: 1; 
+    padding-right: 4px;
+}
+
+/* Individual Task Card */
+.kanban-card {
+    background-color: white;
+    border-radius: 8px;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    cursor: pointer;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.card-title {
+    font-size: 14px;
+    color: #172b4d;
+}
+
+/* Card Footer Layout & Icon Alignments */
+.card-infos {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 4px;
+}
+
+.card-icons {
+    display: flex;
+    gap: 10px;
+    color: #5e6c84;
+    font-size: 12px;
+}
+
+.card-icons p {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* Added: Keeps user avatars properly restricted */
+.user img {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+}
+
+.dragging {
+    opacity: 0.5;
+}
+
+/* Badges Alignment */
+.badge {
+    align-self: flex-start; 
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 4px;
+}
+
+.badge.low { background-color: #3b82f6; color: white; }
+.badge.medium { background-color: #f97316; color: white; }
+.badge.high { background-color: #ef4444; color: white; }
+
+#addTaskBtn {
+    padding: 10px 20px;
+    background: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+#addTaskBtn:hover {
+    background: #2563eb;
+}
+
+/* Mobile layout */
+@media (max-width: 768px) {
+
+    body {
+        padding: 10px;
+        overflow: auto;
+    }
+
+    .app {
+        height: auto;
+        padding: 10px;
+    }
+
+    .task-input-fields {
+        flex-direction: column;
+    }
+
+    .task-input-fields input,
+    .task-input-fields select,
+    #addTaskBtn {
+        width: 100%;
+    }
+
+    .kanban {
+        overflow-x: auto;
+        overflow-y: visible;
+        align-items: stretch;
+    }
+
+    .kanban-column {
+        flex: 0 0 260px;
+        min-width: 260px;
+    }
+
+        /* Stack the task controls vertically */
+    .task-input-fields {
+        flex-direction: column;
+    }
+
+    .task-input-fields input,
+    .task-input-fields select,
+    #addTaskBtn {
+        width: 100%;
+    }
+
+    /* Stack Kanban columns vertically */
+    .kanban {
+        flex-direction: column;
+        overflow-x: hidden;
+        overflow-y: visible;
+    }
+
+    /* Make each column use the available width */
+    .kanban-column {
+        width: 100%;
+        min-width: 0;
+        flex: none;
+    }
+}
+
