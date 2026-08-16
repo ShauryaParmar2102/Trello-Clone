@@ -73,6 +73,17 @@ The browser's Local Storage API is used to save the current Kanban board so task
 
 ---
 
+## 📥 How to Download and Run
+
+###  Download ZIP
+
+1. Open the project repository on GitHub.
+2. Click the green **Code** button.
+3. Select **Download ZIP**.
+4. Extract the downloaded ZIP file.
+5. Open the extracted project folder.
+6. Open `index.html` in your web browser.
+
 ## 📱 Responsive Design
 
 The application includes responsive styling for different screen sizes.
